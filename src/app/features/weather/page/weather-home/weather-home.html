@@ -9,3 +9,7 @@
 
   </form>
 </div>
+
+@if (weatherDatas) {
+  <app-weather-card [WeatherDatasInput]="weatherDatas" />
+}

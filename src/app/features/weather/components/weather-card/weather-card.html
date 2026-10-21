@@ -1,0 +1,69 @@
+@if (WeatherDatasInput) {
+  <div class="container">
+    <div class="upper-data">
+      @if(WeatherDatasInput.main.temp > 15){
+        <img src="/assets/sun.jpg" alt="Calor" >
+      }
+      @if(WeatherDatasInput.main.temp <= 15 ){
+        <img src="/assets/cold1.jpg" alt="Frio">
+      }
+
+      <div class="weather-data">
+        <div class="location">
+          {{WeatherDatasInput.name}}
+        </div>
+        <div class="temperature">
+          {{WeatherDatasInput.main.temp | number: "1.0-0"}}ºC
+        </div>
+      </div>
+    </div>
+
+    <div class="lower-data">
+      <div class="more-info-label">
+        Mais Informações
+      </div>
+
+      <div class="more-info-container">
+        <div class="info-block">
+          <div class="info-block-label">
+            <fa-icon size="lg" [icon]="mintempuraturaIcon"></fa-icon>
+            <span>Minima</span>
+          </div>
+          <div class="info-block-value">
+            {{WeatherDatasInput.main.temp_min | number: "1.0-0"}}ºC
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <fa-icon size="lg" [icon]="maxTemperaturaIcon"></fa-icon>
+            <span>Maxima</span>
+          </div>
+          <div class="info-block-value">
+            {{WeatherDatasInput.main.temp_max | number: "1.0-0"}}ºC
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <fa-icon size="lg" [icon]="humidIcon"></fa-icon>
+            <span>Umidade</span>
+          </div>
+          <div class="info-block-value">
+            {{WeatherDatasInput.main.humidity}}%
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <fa-icon size="lg" [icon]="windIcon"></fa-icon>
+            <span>Vento</span>
+          </div>
+          <div class="info-block-value">
+            {{WeatherDatasInput.wind.speed}}KM/H
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
